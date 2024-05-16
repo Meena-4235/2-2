@@ -1,32 +1,39 @@
-import React , { useState } from "react";
-import Button from "./Button";
-import "./App.css";
+import logo from './logo.svg';
+import './App.css';
 
-export default function App() {
-  const [count, setCount] = useState(0);
+import React, { Component } from 'react';
+class DigitalClock extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      time: new Date().toLocaleTimeString()
+    };
+  }
 
-  let incrementCount = () =>{
-    setCount(count + 1);
-  };
-  let decrementCount = () =>{
-    setCount(count - 1);
-  };
-  return (
-    <div className="app">
-      <div>
-      <div className="title-container">
-        <h2>COUNTER REACT APP</h2>
-        <div className= " title-underline"> </div>
-      </div>
-      <div class="count">
-        <h3>Count:</h3>
-        <h1>{count}</h1>
-      </div>
-      <div class="buttons">
-        <Button title= {"-"} action={decrementCount} />
-        <Button title= {"+"} action={incrementCount} />
-      </div>
-    </div>
-    </div>
+  componentDidMount() {
+    this.intervalID = setInterval(
+      () => this.tick(),
+      1000
     );
   }
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
+  }
+
+  tick() {
+    this.setState({
+      time: new Date().toLocaleTimeString()
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Digital Clock</h1>
+        <p>Current Time: {this.state.time}</p>
+      </div>
+    );
+  }
+}
+
+export default DigitalClock;
