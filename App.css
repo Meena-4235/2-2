@@ -1,3 +1,18 @@
+.App{
+  background-color:blue;
+}
+body{
+  background-color:#fcf1c0;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
+.category-table th, .category-table td{
+  border:1px solid #ddd;
+  padding: 8px;
+  text-align:left;
+  font-size:0.9em;
+}
 .App {
   text-align: center;
 }
@@ -21,7 +36,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(247,127,133);
 }
 
 .App-link {
@@ -35,4 +50,11 @@
   to {
     transform: rotate(360deg);
   }
+}
+.watermark{
+  position:absolute;
+  bottom:10px;
+  right:10px;
+  color:rgba(0,0,0,0.5);
+  font-size: 12px;
 }
